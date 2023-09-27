@@ -10,6 +10,11 @@ textareaEl.addEventListener('input', function() {
     const numberOfCharacters = textareaEl.value.length;
     const twitterCharLeft = 280 - numberOfCharacters;
     const facebookCharLeft = 2200 - numberOfCharacters;
+    let numberOfWords = textareaEl.value.split(' ').length;
+    if (textareaEl.value.length === 0) {
+        numberOfWords = 0;
+    };
+    //count how many words there are
 
     // add visula indicator if limit exceeded
 
@@ -25,6 +30,7 @@ textareaEl.addEventListener('input', function() {
         facebookNumberEl.classList.remove('stat__number--limit');
     }
     // set new numbers
+    wordsNumberEl.textContent = numberOfWords;
     charactersNumberEl.textContent = numberOfCharacters;
     twitterNumberEl.textContent = twitterCharLeft;
     facebookNumberEl.textContent = facebookCharLeft;
